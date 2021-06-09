@@ -66,6 +66,12 @@ body {
   transform: rotateY(180deg);
 }
 
+.page:nth-child(1) .page-face:nth-child(2),
+.page:nth-child(2) .page-face:nth-child(1),
+.page:nth-child(3) .page-face:nth-child(2) {
+  background: #fff;
+}
+
 .cover-page {
   display: flex;
   /* 위아래 배치 */
@@ -89,4 +95,57 @@ body {
 
 .menu-header-title {
   font-family: "Courgette", cursive;
+}
+
+.menu-list {
+  font-size: 0.7rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 2em;
+  transition: 0.5s;
+}
+
+.menu-item-photo {
+  width: 20%;
+  padding-bottom: 20%;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.menu-item-info {
+  flex: 1;
+  margin-left: 1em;
+}
+.member-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.back-btn {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.close-btn {
+  display: none;
+  position: absolute;
+  top: -2rem;
+  right: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.3) 0 1px 0;
+  backface-visibility: hidden;
+}
+
+.leaflet-opened .close-btn {
+	display: inline-block;
 }
