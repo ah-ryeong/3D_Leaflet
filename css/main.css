@@ -32,8 +32,12 @@ body {
   transition: 1s;
 }
 
-.page:hover {
-  transform: rotateY(180deg);
+.page.page-flipped {
+  transform: rotateY(-150deg);
+}
+
+.page:nth-child(1) {
+  transform-origin: left;
 }
 
 .page-face {
