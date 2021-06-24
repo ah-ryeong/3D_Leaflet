@@ -108,6 +108,15 @@ body {
   position: relative;
   padding: 2em;
   transition: 0.5s;
+  transition: 0.5s;
+}
+
+.zoom-in .menu-item {
+  opacity: 0;
+}
+
+.zoom-in .menu-item.current-menu {
+  opacity: 1;
 }
 
 .menu-item-photo {

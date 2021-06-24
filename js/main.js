@@ -3,6 +3,8 @@
     const leaflet = document.querySelector('.leaflet');
     const pageElems = document.querySelectorAll('.page');
     let pageCount = 0;
+    // 선택한 메뉴 아이템
+    let currentMenu;
 
     function getTarget(elem, className) {
         while(!elem.classList.contains(className)) {
@@ -48,7 +50,14 @@
                 angle = 30;
                 break;
         }
+
+        // 줌인된 상태
+        document.body.classList.add('zoom-in');
+
         leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw) rotateY(${angle}deg)`;
+        currentMenu = elem;
+        currentMenu.classList.add('current-menu');
+        
     }
 
     leaflet.addEventListener('click', e =>{
