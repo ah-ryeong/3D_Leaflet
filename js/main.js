@@ -87,6 +87,7 @@
         
         if (closeBtnElem) {
             closeLeaflet();
+            zoomOut();
         }
 
         // zoom-in, zoom-out
