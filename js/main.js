@@ -56,8 +56,16 @@
 
         leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw) rotateY(${angle}deg)`;
         currentMenu = elem;
-        currentMenu.classList.add('current-menu');
-        
+        currentMenu.classList.add('current-menu'); 
+    }
+
+    function zoomOut() {
+        leaflet.style.transform = 'translate3d(0, 0, 0)';
+        if(currentMenu) {
+            document.body.classList.remove('zoom-in');
+            currentMenu.classList.remove('current-menu');
+            currentMenu = null;
+        }
     }
 
     leaflet.addEventListener('click', e =>{
@@ -85,6 +93,11 @@
         let menuItemElem = getTarget(e.target, 'menu-item');
         if (menuItemElem) {
             zoomIn(menuItemElem);
+        }
+
+        let backBtn = getTarget(e.target, 'back-btn');
+        if (backBtn) {
+            zoomOut(backBtn);
         }
     }); 
 })();

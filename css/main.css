@@ -145,6 +145,10 @@ body {
   top: 10px;
 }
 
+.current-menu .back-btn {
+  display: inline-block;
+}
+
 .close-btn {
   display: none;
   position: absolute;
