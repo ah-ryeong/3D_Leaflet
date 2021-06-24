@@ -31,6 +31,10 @@
         // console.log(elem.getBoundingClientRect());
         const rect = elem.getBoundingClientRect();
         // console.log(rect.left, rect.top);
+        const dx = window.innerWidth/2 - (rect.x + rect.width/2);
+        const dy = window.innerHeight/2 - (rect.y + rect.height/2);
+    
+        leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw)`;
     }
 
     leaflet.addEventListener('click', e =>{
