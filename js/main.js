@@ -1,10 +1,19 @@
 (() => {
     // 익명함수 직접호출
     const leaflet = document.querySelector('.leaflet');
+    const hand = document.querySelector('.hand');
     const pageElems = document.querySelectorAll('.page');
     let pageCount = 0;
     // 선택한 메뉴 아이템
     let currentMenu;
+
+    // 현재 손 위치 확인
+    const handPos = {x: 0, y: 0};
+    const targetPos = {x: 0, y: 0};
+
+    // 거리구하는 변수
+    let distX;
+    let distY;
 
     function getTarget(elem, className) {
         while(!elem.classList.contains(className)) {
@@ -68,6 +77,21 @@
         }
     }
 
+    function render() {
+        // 거리구하기
+        distX = targetPos.x - handPos.x;
+        distY = targetPos.y - handPos.y;
+
+        // 손 위치 바꿔주기
+        handPos.x = handPos.x + distX*0.1;
+        handPos.y = handPos.y + distY*0.1;
+
+        hand.style.transform = `translate(${handPos.x}px, ${handPos.y}px)`;
+        requestAnimationFrame(render);
+    }
+
+    render();
+
     leaflet.addEventListener('click', e =>{
         // console.log(e.target);
         let pageElem = getTarget(e.target, 'page')
@@ -101,4 +125,14 @@
             zoomOut(backBtn);
         }
     }); 
+
+    // 마우스 move 이벤트 -> 마우스 따라오게 하기
+    window.addEventListener('mousemove', e=> {
+        // 좌표 확인
+        // console.log(e.clientX, e.clientY);
+
+        targetPos.x = e.clientX;
+        targetPos.y = e.clientY;
+        hand.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
 })();
