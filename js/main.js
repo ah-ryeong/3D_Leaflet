@@ -26,6 +26,13 @@
         }, 500);
     }
 
+    function zoomIn(elem) {
+        // elem 위치 가져오기
+        // console.log(elem.getBoundingClientRect());
+        const rect = elem.getBoundingClientRect();
+        // console.log(rect.left, rect.top);
+    }
+
     leaflet.addEventListener('click', e =>{
         // console.log(e.target);
         let pageElem = getTarget(e.target, 'page')
@@ -45,6 +52,12 @@
         
         if (closeBtnElem) {
             closeLeaflet();
+        }
+
+        // zoom-in, zoom-out
+        let menuItemElem = getTarget(e.target, 'menu-item');
+        if (menuItemElem) {
+            zoomIn(menuItemElem);
         }
     }); 
 })();
