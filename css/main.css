@@ -1,3 +1,12 @@
+@keyframes start-ani {
+  0% {
+    transform: translate(-100%, 100%) rotate(-540deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
 html {
   font-size: 14px;
 }
@@ -23,6 +32,7 @@ body {
   transition: 1s;
   font-size: 3rem;
   cursor: pointer;
+  animation: start-ani 1s forwards;
 }
 
 .hand {
