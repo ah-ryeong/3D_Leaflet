@@ -86,7 +86,7 @@
         handPos.x = handPos.x + distX*0.1;
         handPos.y = handPos.y + distY*0.1;
 
-        hand.style.transform = `translate(${handPos.x}px, ${handPos.y}px)`;
+        hand.style.transform = `translate(${handPos.x - 60}px, ${handPos.y + 30}px)`;
         requestAnimationFrame(render);
     }
 
