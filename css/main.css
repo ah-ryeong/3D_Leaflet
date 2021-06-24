@@ -7,11 +7,13 @@
     transform: translate(0, 0) rotate(0);
   }
 }
+
 html {
   font-size: 14px;
 }
 
 body {
+  overflow: hidden;
   font-family: "Playfair Display", serif;
   background: url(../images/tablewood.jpg);
   background-size: auto 130px;
@@ -89,6 +91,7 @@ body {
   background: cornsilk;
   /* 뒷면 안 보이게 설정 */
   backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .page-face:nth-child(2) {

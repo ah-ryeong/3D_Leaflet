@@ -117,22 +117,27 @@
         // zoom-in, zoom-out
         let menuItemElem = getTarget(e.target, 'menu-item');
         if (menuItemElem) {
-            zoomIn(menuItemElem);
+            if (!document.body.classList.contains('zoom-in')) {
+				zoomIn(menuItemElem);
+			}
         }
 
         let backBtn = getTarget(e.target, 'back-btn');
         if (backBtn) {
-            zoomOut(backBtn);
+            zoomOut();
         }
     }); 
 
+    leaflet.addEventListener('animationend', () => {
+        leaflet.style.animation = 'none';
+    });
+
     // 마우스 move 이벤트 -> 마우스 따라오게 하기
-    window.addEventListener('mousemove', e=> {
-        // 좌표 확인
+    window.addEventListener('mousemove', e => {
+        // 좌표 확인 
         // console.log(e.clientX, e.clientY);
 
         targetPos.x = e.clientX - window.innerWidth*0.7;
         targetPos.y = e.clientY - window.innerHeight*0.7;
-        // hand.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     });
 })();
