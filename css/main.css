@@ -22,6 +22,20 @@ body {
   transform-style: preserve-3d;
   transition: 1s;
   font-size: 3rem;
+  cursor: pointer;
+}
+
+.hand {
+  position: absolute;
+  width: 400px;
+}
+
+.hand img {
+  transition: 1s;
+}
+
+.zoom-in .hand img {
+  transform: scale(2);
 }
 
 .page {
