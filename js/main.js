@@ -131,8 +131,8 @@
         // 좌표 확인
         // console.log(e.clientX, e.clientY);
 
-        targetPos.x = e.clientX;
-        targetPos.y = e.clientY;
-        hand.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        targetPos.x = e.clientX - window.innerWidth*0.7;
+        targetPos.y = e.clientY - window.innerHeight*0.7;
+        // hand.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     });
 })();
