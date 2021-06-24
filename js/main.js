@@ -33,8 +33,22 @@
         // console.log(rect.left, rect.top);
         const dx = window.innerWidth/2 - (rect.x + rect.width/2);
         const dy = window.innerHeight/2 - (rect.y + rect.height/2);
-    
-        leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw)`;
+        
+        // 각도조절
+        let angle;
+
+        switch (elem.parentNode.parentNode.parentNode.dataset.page*1) {
+            case 1:
+                angle = -30;
+                break;
+            case 2:
+                angle = 0;
+                break;
+            case 3:
+                angle = 30;
+                break;
+        }
+        leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw) rotateY(${angle}deg)`;
     }
 
     leaflet.addEventListener('click', e =>{
